@@ -8,9 +8,14 @@
 import SwiftUI
 
 ///Custom toggle style
-struct CheckboxToggleStyle: ToggleStyle {
-    let showLable:Bool
-    func makeBody(configuration: Configuration) -> some View {
+public struct CheckboxToggleStyle: ToggleStyle {
+    private let showLable:Bool
+
+    public init(showLable:Bool = true) {
+        self.showLable = showLable
+    }
+
+    public func makeBody(configuration: Configuration) -> some View {
         HStack{
             if showLable {
                 configuration.label
